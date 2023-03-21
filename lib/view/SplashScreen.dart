@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
 import 'constants/ConstantsClass.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,12 +22,12 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          height(mHeight * 0.13),
+          height(8.h),
           Lottie.asset("assets/lottie/all.json"),
-          height(mHeight * 0.1),
+          const Spacer(),
           confirmButton(() {
             Get.toNamed("/IntroScreen");
-          }, 0, mHeight, mWidth, "Get Started"),
+          }, 5.h, "Get Started"),
         ],
       ),
     );

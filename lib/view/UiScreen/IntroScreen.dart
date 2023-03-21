@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loan_guide/view/constants/ConstantsClass.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -12,8 +13,6 @@ class IntroScreen extends StatefulWidget {
 class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
-    var mHeight = MediaQuery.of(context).size.height;
-    var mWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -25,16 +24,16 @@ class _IntroScreenState extends State<IntroScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              height(mHeight * 0.01),
+              height(3.h),
               Container(
-                height: mHeight / 4.5,
-                width: mWidth,
+                height: 22.h,
+                width: 100.w,
                 color: Colors.white.withOpacity(0.5),
               ),
               const Spacer(),
               confirmButton(() {
                 Get.toNamed("/MainScreen");
-              }, mHeight * 0.04, mHeight, mWidth, "Started")
+              }, 3.h, "Started")
             ],
           ),
         ],

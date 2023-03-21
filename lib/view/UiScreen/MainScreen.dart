@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:loan_guide/view/Loans/AadhaarLoan.dart';
+import 'package:loan_guide/view/Loans/AgricultureLoan.dart';
+import 'package:loan_guide/view/Loans/BikeLoan.dart';
+import 'package:loan_guide/view/Loans/BusinessLoan.dart';
+import 'package:loan_guide/view/Loans/CarLoan.dart';
+import 'package:loan_guide/view/Loans/CreditCardLoan.dart';
+import 'package:loan_guide/view/Loans/EducationLoan.dart';
+import 'package:loan_guide/view/Loans/GoldLoan.dart';
+import 'package:loan_guide/view/Loans/HomeLoan.dart';
+import 'package:loan_guide/view/Loans/PersonalLoan.dart';
 import 'package:loan_guide/view/constants/ConstantsClass.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -11,59 +23,139 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    var mHeight = MediaQuery.of(context).size.height;
-    var mWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            height(40),
-            box(mHeight * 0.23, mHeight * 0.2),
-            height(40),
-            box(mHeight * 0.22, mHeight * 0.19),
-            height(40),
-            box(mHeight * 0.19, mHeight * 0.19),
-            height(40),
-            box(mHeight * 0.19, mHeight * 0.22),
-            height(40),
-            box(mHeight * 0.2, mHeight * 0.23),
+            height(3.h),
+            Container(
+              height: 22.h,
+              width: 100.w,
+              color: Colors.white.withOpacity(0.5),
+            ),
             height(20),
+            box(
+                () {
+                  Get.to(const PersonalLoan());
+                },
+                23.h,
+                "assets/image/personal.png",
+                () {
+                  Get.to(const CreditCardLoan());
+                },
+                21.h,
+                "assets/image/creditCard.png"),
+            height(40),
+            box(
+                () {
+                  Get.to(const BusinessLoan());
+                },
+                22.h,
+                "assets/image/business.png",
+                () {
+                  Get.to(const AadhaarLoan());
+                },
+                20.h,
+                "assets/image/aadhaar.png"),
+            height(40),
+            box(
+                () {
+                  Get.to(const HomeLoan());
+                },
+                20.h,
+                "assets/image/home.png",
+                () {
+                  Get.to(const GoldLoan());
+                },
+                20.h,
+                "assets/image/gold.png"),
+            height(40),
+            box(
+                () {
+                  Get.to(const BikeLoan());
+                },
+                20.h,
+                "assets/image/bike.png",
+                () {
+                  Get.to(const CarLoan());
+                },
+                22.h,
+                "assets/image/car.png"),
+            height(40),
+            box(
+                () {
+                  Get.to(const AgricultureLoan());
+                },
+                21.h,
+                "assets/image/agriculture.png",
+                () {
+                  Get.to(const EducationLoan());
+                },
+                23.h,
+                "assets/image/education.png"),
+            height(4.h),
+            Container(
+              height: 22.h,
+              width: 100.w,
+              color: Colors.white.withOpacity(0.5),
+            ),
           ],
         ),
       ),
     );
   }
 
-  box(
-    double pDblHeight,
-    double pDblHeight1,
-  ) {
+  box(void Function() onTap, double pDblHeight, String pStrUrl,
+      void Function() onTap1, double pDblHeight1, String pStrUrl1) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Container(
-          height: pDblHeight,
-          width: pDblHeight,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(color: Colors.white60, spreadRadius: 2, blurRadius: 15)
-            ],
+        InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: onTap,
+          child: Container(
+            height: pDblHeight,
+            width: pDblHeight,
+            decoration: BoxDecoration(
+              // color: Colors.white.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.white.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 15)
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(pStrUrl),
+            ),
           ),
         ),
-        Container(
-          height: pDblHeight1,
-          width: pDblHeight1,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(color: Colors.white60, spreadRadius: 2, blurRadius: 15)
-            ],
+        InkWell(
+          borderRadius: BorderRadius.circular(20),
+          splashColor: backgroundColor,
+          onTap: onTap1,
+          child: Container(
+            height: pDblHeight1,
+            width: pDblHeight1,
+            decoration: BoxDecoration(
+              // color: Colors.white.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.white.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 15)
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(pStrUrl1),
+            ),
           ),
         ),
       ],
