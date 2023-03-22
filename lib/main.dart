@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:loan_guide/view/SplashScreen.dart';
+import 'package:loan_guide/view/UiScreen/SplashScreen.dart';
 import 'package:loan_guide/view/UiScreen/IntroScreen.dart';
 import 'package:loan_guide/view/UiScreen/MainScreen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

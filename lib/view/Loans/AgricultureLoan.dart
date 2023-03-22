@@ -13,7 +13,8 @@ class _AgricultureLoanState extends State<AgricultureLoan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar("Agriculture Loan"),
-      body: Scaffold(body: loans("Agriculture", "assets/image/creditCard.png")),
+      body:
+          Scaffold(body: loans("Agriculture", "assets/image/agriculture.png")),
     );
   }
 }

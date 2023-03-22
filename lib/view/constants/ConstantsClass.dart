@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loan_guide/view/QuestionScreen/FirstQuestion.dart';
@@ -35,18 +37,18 @@ confirmButton(
         width: pDblWidth ?? double.infinity,
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0xFF1F6E52),
           borderRadius: BorderRadius.circular(35),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.black,
               spreadRadius: 1,
               blurRadius: 15,
             ),
           ],
         ),
         child: Center(
-          child: text(pStrText, pDblFSize ?? 23.sp),
+          child: text(pStrText, pDblFSize ?? 23.sp, pClrColor: Colors.white),
         ),
       ),
     ),
@@ -66,7 +68,7 @@ appBar(String pStrText) {
         size: 26.sp,
       ),
     ),
-    backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.9),
+    backgroundColor: const Color(0xFF2C8362),
     title: Text(
       pStrText,
       style: TextStyle(
@@ -114,6 +116,8 @@ loans(String pStrLoanType, String pStrUrl) {
                 color: Colors.white.withOpacity(0.5),
               ),
               height(1.h),
+              Image.asset(pStrUrl),
+              height(2.h),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SelectableText(
@@ -187,5 +191,85 @@ Once the inspection of the property is done, you need to sign the agreement of t
         }, 3.h, "Go To Document!", pDblWidth: 60.w, pDblFSize: 18.5.sp),
       ],
     ),
+  );
+}
+
+questions(void Function() onTap, String pStrCard) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        height: 80.h,
+        width: 100.w,
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.9),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(
+              sigmaX: 2, sigmaY: 10, tileMode: TileMode.mirror),
+          child: Column(
+            children: [
+              height(3.5.h),
+              Container(
+                height: 23.h,
+                width: double.infinity,
+                color: Colors.black.withOpacity(0.3),
+              ),
+              height(3.h),
+              text("Do you have $pStrCard?", 24.sp),
+              height(10.h),
+              InkWell(
+                onTap: onTap,
+                borderRadius: BorderRadius.circular(30),
+                child: Container(
+                  height: 7.5.h,
+                  width: 85.w,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1F6E52),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: text("Yes, I have $pStrCard.", 18.sp,
+                      pClrColor: Colors.white),
+                ),
+              ),
+              height(3.h),
+              InkWell(
+                onTap: () {
+                  Get.snackbar(
+                    "Alert",
+                    "You can proceed only if you have the $pStrCard...",
+                    colorText: Colors.white,
+                    barBlur: 25,
+                    backgroundColor: const Color(0xFF2C8362),
+                    margin: const EdgeInsets.only(bottom: 50),
+                    animationDuration: const Duration(seconds: 2),
+                    overlayBlur: 15,
+                    snackPosition: SnackPosition.BOTTOM,
+                    icon: Icon(
+                      Icons.add_alert,
+                      color: Colors.white.withOpacity(0.9),
+                    ),
+                  );
+                },
+                borderRadius: BorderRadius.circular(30),
+                child: Container(
+                  height: 7.5.h,
+                  width: 85.w,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1F6E52),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: text("No, I have no $pStrCard.", 18.sp,
+                      pClrColor: Colors.white),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ],
   );
 }

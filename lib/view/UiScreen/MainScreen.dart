@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loan_guide/view/Loans/AadhaarLoan.dart';
@@ -13,6 +15,8 @@ import 'package:loan_guide/view/Loans/PersonalLoan.dart';
 import 'package:loan_guide/view/constants/ConstantsClass.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+String loanName = "";
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -23,85 +27,118 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            height(3.h),
-            Container(
-              height: 22.h,
-              width: 100.w,
-              color: Colors.white.withOpacity(0.5),
-            ),
-            height(20),
-            box(
-                () {
-                  Get.to(const PersonalLoan());
-                },
-                23.h,
-                "assets/image/personal.png",
-                () {
-                  Get.to(const CreditCardLoan());
-                },
-                21.h,
-                "assets/image/creditCard.png"),
-            height(40),
-            box(
-                () {
-                  Get.to(const BusinessLoan());
-                },
-                22.h,
-                "assets/image/business.png",
-                () {
-                  Get.to(const AadhaarLoan());
-                },
-                20.h,
-                "assets/image/aadhaar.png"),
-            height(40),
-            box(
-                () {
-                  Get.to(const HomeLoan());
-                },
-                20.h,
-                "assets/image/home.png",
-                () {
-                  Get.to(const GoldLoan());
-                },
-                20.h,
-                "assets/image/gold.png"),
-            height(40),
-            box(
-                () {
-                  Get.to(const BikeLoan());
-                },
-                20.h,
-                "assets/image/bike.png",
-                () {
-                  Get.to(const CarLoan());
-                },
-                22.h,
-                "assets/image/car.png"),
-            height(40),
-            box(
-                () {
-                  Get.to(const AgricultureLoan());
-                },
-                21.h,
-                "assets/image/agriculture.png",
-                () {
-                  Get.to(const EducationLoan());
-                },
-                23.h,
-                "assets/image/education.png"),
-            height(4.h),
-            Container(
-              height: 22.h,
-              width: 100.w,
-              color: Colors.white.withOpacity(0.5),
-            ),
-          ],
+    return WillPopScope(
+      onWillPop: () => exit(100),
+      child: Scaffold(
+        backgroundColor: backgroundColor,
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              height(3.h),
+              Container(
+                height: 22.h,
+                width: 100.w,
+                color: Colors.white.withOpacity(0.5),
+              ),
+              height(20),
+              box(
+                  () {
+                    Get.off(const PersonalLoan());
+                    setState(() {
+                      loanName = "Personal loan";
+                    });
+                  },
+                  23.5.h,
+                  "assets/image/personal.png",
+                  () {
+                    Get.off(const CreditCardLoan());
+                    setState(() {
+                      loanName = "CreditCard Loan";
+                    });
+                  },
+                  20.5.h,
+                  "assets/image/creditCard.png"),
+              height(40),
+              box(
+                  () {
+                    Get.off(const BusinessLoan());
+                    setState(() {
+                      loanName = "Business Loan";
+                    });
+                  },
+                  22.5.h,
+                  "assets/image/business.png",
+                  () {
+                    Get.off(const AadhaarLoan());
+                    setState(() {
+                      loanName = "Aadhaar Loan";
+                    });
+                  },
+                  19.5.h,
+                  "assets/image/aadhaar.png"),
+              height(40),
+              box(
+                  () {
+                    Get.off(const HomeLoan());
+                    setState(() {
+                      loanName = "Home Loan";
+                    });
+                  },
+                  20.h,
+                  "assets/image/home.png",
+                  () {
+                    Get.off(const GoldLoan());
+                    setState(() {
+                      loanName = "Gold Loan";
+                    });
+                  },
+                  20.h,
+                  "assets/image/gold.png"),
+              height(40),
+              box(
+                  () {
+                    Get.off(const BikeLoan());
+                    setState(() {
+                      loanName = "Bike Loan";
+                    });
+                  },
+                  19.5.h,
+                  "assets/image/bike.png",
+                  () {
+                    Get.off(const CarLoan());
+                    setState(() {
+                      loanName = "Car Loan";
+                    });
+                  },
+                  22.5.h,
+                  "assets/image/car.png"),
+              height(40),
+              box(
+                  () {
+                    Get.off(const AgricultureLoan());
+                    setState(() {
+                      loanName = "Agriculture Loan";
+                    });
+                  },
+                  20.5.h,
+                  "assets/image/agriculture.png",
+                  () {
+                    Get.off(const EducationLoan());
+                    setState(() {
+                      loanName = "Education Loan";
+                    });
+                  },
+                  23.5.h,
+                  "assets/image/education.png"),
+              height(4.h),
+              Container(
+                height: 22.h,
+                width: 100.w,
+                color: Colors.white.withOpacity(0.5),
+              ),
+            ],
+          ),
         ),
       ),
     );

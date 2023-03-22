@@ -13,8 +13,7 @@ class _AadhaarLoanState extends State<AadhaarLoan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar("AadhaarCard Loan"),
-      body:
-          Scaffold(body: loans("AadhaarCard", "assets/image/agriculture.png")),
+      body: Scaffold(body: loans("AadhaarCard", "assets/image/aadhaar.png")),
     );
   }
 }

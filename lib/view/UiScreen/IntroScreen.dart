@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loan_guide/view/UiScreen/StartScreen.dart';
 import 'package:loan_guide/view/constants/ConstantsClass.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -32,7 +33,7 @@ class _IntroScreenState extends State<IntroScreen> {
               ),
               const Spacer(),
               confirmButton(() {
-                Get.toNamed("/MainScreen");
+                Get.to(const StartScreen());
               }, 3.h, "Started")
             ],
           ),

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'constants/ConstantsClass.dart';
+import '../constants/ConstantsClass.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           height(8.h),
-          Lottie.asset("assets/lottie/all.json"),
+          Lottie.asset("assets/lottie/splash.json", height: 70.h, width: 100.w),
           const Spacer(),
           confirmButton(() {
             Get.toNamed("/IntroScreen");
