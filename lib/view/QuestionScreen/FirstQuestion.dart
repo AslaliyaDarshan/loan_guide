@@ -20,6 +20,7 @@ class _FirstQuestionState extends State<FirstQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Status"),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
@@ -61,7 +62,7 @@ class _FirstQuestionState extends State<FirstQuestion> {
           },
         );
         Timer(
-          const Duration(milliseconds: 800),
+          const Duration(milliseconds: 500),
           () => Get.to(
             const SecondQuestion(),
           ),

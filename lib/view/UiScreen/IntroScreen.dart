@@ -14,7 +14,7 @@ class IntroScreen extends StatefulWidget {
 class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomInset: false,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -33,7 +33,7 @@ class _IntroScreenState extends State<IntroScreen> {
               ),
               const Spacer(),
               confirmButton(() {
-                Get.to(const StartScreen());
+                Get.offAll(const StartScreen());
               }, 3.h, "Started")
             ],
           ),

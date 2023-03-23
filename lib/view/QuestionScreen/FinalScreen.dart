@@ -16,6 +16,7 @@ class _FinalScreenState extends State<FinalScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -27,7 +28,7 @@ class _FinalScreenState extends State<FinalScreen> {
             pClrColor: Colors.white.withOpacity(0.9),
           ),
           confirmButton(() {
-            Get.off(const MainScreen());
+            Get.offAll(const MainScreen());
           }, 3.h, "Submit")
         ],
       ),

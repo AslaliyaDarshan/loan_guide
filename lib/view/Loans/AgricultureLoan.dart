@@ -12,9 +12,9 @@ class _AgricultureLoanState extends State<AgricultureLoan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Agriculture Loan"),
-      body:
-          Scaffold(body: loans("Agriculture", "assets/image/agriculture.png")),
+      body: loans("Agriculture", "assets/image/agriculture.png"),
     );
   }
 }

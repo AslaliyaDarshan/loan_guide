@@ -34,6 +34,7 @@ class _SecondQuestionState extends State<SecondQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Earning"),
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(

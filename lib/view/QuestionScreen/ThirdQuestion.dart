@@ -18,6 +18,7 @@ class _ThirdQuestionState extends State<ThirdQuestion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Payment Method"),
       backgroundColor: backgroundColor,
       body: Column(

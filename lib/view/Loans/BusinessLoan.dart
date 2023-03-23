@@ -11,9 +11,9 @@ class BusinessLoan extends StatefulWidget {
 class _BusinessLoanState extends State<BusinessLoan> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomInset: false,
       appBar: appBar("Business Loan"),
-      body: Scaffold(body: loans("Business", "assets/image/business.png")),
+      body: loans("Business", "assets/image/business.png"),
     );
   }
 }

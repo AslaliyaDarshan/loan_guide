@@ -13,7 +13,7 @@ class _EducationLoanState extends State<EducationLoan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar("Education Loan"),
-      body: Scaffold(body: loans("Education", "assets/image/education.png")),
+      body: loans("Education", "assets/image/education.png"),
     );
   }
 }

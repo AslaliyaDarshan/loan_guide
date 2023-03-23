@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loan_guide/view/Loans/AadhaarLoan.dart';
@@ -12,6 +11,7 @@ import 'package:loan_guide/view/Loans/EducationLoan.dart';
 import 'package:loan_guide/view/Loans/GoldLoan.dart';
 import 'package:loan_guide/view/Loans/HomeLoan.dart';
 import 'package:loan_guide/view/Loans/PersonalLoan.dart';
+import 'package:loan_guide/view/UiScreen/StartScreen.dart';
 import 'package:loan_guide/view/constants/ConstantsClass.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -28,8 +28,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () => exit(100),
+      onWillPop: () => back(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: backgroundColor,
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -197,5 +198,9 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ],
     );
+  }
+
+  back() {
+    Get.offAll(const StartScreen());
   }
 }

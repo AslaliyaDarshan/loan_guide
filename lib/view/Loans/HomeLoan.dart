@@ -12,8 +12,9 @@ class _HomeLoanState extends State<HomeLoan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Home Loan"),
-      body: Scaffold(body: loans("Home", "assets/image/home.png")),
+      body: loans("Home", "assets/image/home.png"),
     );
   }
 }

@@ -12,10 +12,9 @@ class _PersonalLoanState extends State<PersonalLoan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Personal Loan"),
-      body: Scaffold(
-        body: loans("Personal", "assets/image/personal.png"),
-      ),
+      body: loans("Personal", "assets/image/personal.png"),
     );
   }
 }

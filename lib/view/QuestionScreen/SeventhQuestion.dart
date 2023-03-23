@@ -13,7 +13,7 @@ class SeventhQuestion extends StatefulWidget {
 class _SeventhQuestionState extends State<SeventhQuestion> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
       body: questions(() {
         Get.to(const FinalScreen());

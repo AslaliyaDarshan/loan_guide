@@ -73,7 +73,7 @@ appBar(String pStrText) {
       pStrText,
       style: TextStyle(
         color: const Color(0xFF0d3326),
-        fontSize: 21.sp,
+        fontSize: 20.sp,
         fontWeight: FontWeight.w700,
         fontFamily: "sri",
         letterSpacing: 2,
@@ -187,7 +187,7 @@ Once the inspection of the property is done, you need to sign the agreement of t
           ),
         ),
         confirmButton(() {
-          Get.to(const FirstQuestion());
+          Get.off(const FirstQuestion());
         }, 3.h, "Go To Document!", pDblWidth: 60.w, pDblFSize: 18.5.sp),
       ],
     ),

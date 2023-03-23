@@ -13,7 +13,7 @@ class _CreditCardLoanState extends State<CreditCardLoan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar("CreditCard Loan"),
-      body: Scaffold(body: loans("CreditCard", "assets/image/creditCard.png")),
+      body: loans("CreditCard", "assets/image/creditCard.png"),
     );
   }
 }

@@ -12,8 +12,9 @@ class _CarLoanState extends State<CarLoan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Car Loan"),
-      body: Scaffold(body: loans("Car", "assets/image/car.png")),
+      body: loans("Car", "assets/image/car.png"),
     );
   }
 }

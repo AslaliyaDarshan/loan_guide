@@ -12,8 +12,9 @@ class _GoldLoanState extends State<GoldLoan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar("Gold Loan"),
-      body: Scaffold(body: loans("Gold", "assets/image/gold.png")),
+      body: loans("Gold", "assets/image/gold.png"),
     );
   }
 }
